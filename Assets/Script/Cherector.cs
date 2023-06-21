@@ -20,6 +20,8 @@ public class Cherector : MonoBehaviour
     private Vector3 _moveDirection;
     public Animator _animator;
     public float Horizontal;
+  //  public float Vertical;
+   public float hor =0;
 
     private void Awake()
     {
@@ -29,7 +31,7 @@ public class Cherector : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        Move(_moveDirection);
+        
         DoGravity();
         _isGrounded = IsOnTheGraund(); 
         if (_isGrounded && _velocity <0) 
@@ -43,7 +45,9 @@ public class Cherector : MonoBehaviour
     }
     private void Update()
     {
-        _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+       //_moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        _moveDirection = new Vector3(hor, 0f, 0f);
+        Move(_moveDirection);
         if (Input.GetButtonDown("Jump") && _isGrounded) 
         {
             Jump();
@@ -90,4 +94,12 @@ public class Cherector : MonoBehaviour
     
     }
 
+    public void MoveRighet(int set) 
+    {
+        hor = set;
+    }
+    public void MoveLeft(int set) 
+    { 
+        hor = set; 
+    }
 }
