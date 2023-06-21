@@ -57,13 +57,13 @@ public class Cherector : MonoBehaviour
     private void Move(Vector3 direction)
     {
         _controller.Move(direction*_speed*Time.fixedDeltaTime);
-        if (Horizontal < 0)
-        {
+     //   if (Horizontal < 0)
+     //   {
             
             
-            transform.rotation = Quaternion.Euler(0, 270, 0);
-        }
-        else { transform.rotation = Quaternion.Euler(0, 90, 0); }
+    //        transform.rotation = Quaternion.Euler(0, 270, 0);
+    //    }
+    //    if (Horizontal > 0) { transform.rotation = Quaternion.Euler(0, 90, 0); }
     }
     private void Jump() 
     { 
@@ -84,7 +84,9 @@ public class Cherector : MonoBehaviour
     public void AnimatidCherector() 
     {
         Horizontal = Input.GetAxis("Horizontal");
-        _animator.SetFloat("h", Horizontal);
+        if(Horizontal < 0) { _animator.SetFloat("h", 1); }
+        if(Horizontal > 0) { _animator.SetFloat("h", 1); }
+        if(Horizontal == 0) { _animator.SetFloat("h", 1);  }
     
     }
 
