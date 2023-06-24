@@ -11,7 +11,7 @@ public class RoadRider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        offset -= 0.01f;
+        offset += 0.001f;
         GetComponent<Renderer>().material.mainTextureOffset = new Vector2(offset, 0f);
     }
 }
