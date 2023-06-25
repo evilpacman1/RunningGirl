@@ -45,7 +45,7 @@ public class Cherector : MonoBehaviour
     }
     private void Update()
     {
-       //_moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+     //  _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         _moveDirection = new Vector3(hor, 0f, 0f);
         Move(_moveDirection);
         if (Input.GetButtonDown("Jump") && _isGrounded) 
@@ -55,7 +55,7 @@ public class Cherector : MonoBehaviour
         }
         else 
         {
-            _animator.SetBool("Jump", false);
+       _animator.SetBool("Jump", false);
         }
     }
     private void Move(Vector3 direction)
